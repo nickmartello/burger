@@ -3,7 +3,7 @@ $(function() {
       event.preventDefault();
   
       var newBurger = {
-        name: $("#burg")
+        name: $("#newburger")
           .val()
           .trim(),
         devoured: 0
@@ -35,7 +35,7 @@ $(function() {
       });
     });
   
-    $("#trashbutton").on("click", function(event) {
+    $("#garbage").on("click", function(event) {
       event.preventDefault();
   
       var id = $(this).data("id");

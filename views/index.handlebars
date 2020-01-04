@@ -3,14 +3,14 @@
 
   <div class="jumbotron">
 
-    <h1>Burgers!</h1>
+    <h1>Nick's Imitation Burger</h1>
 
   </div>
 
   <div class="row">
     <div class="col-sm">
       <div class="panel panel-default">
-        <div class="panel-heading" id="leftburger"><strong>
+        <div class="panel-heading" id="first"><strong>
             <h3>Burgers to eat!</h3>
           </strong>
           <p>These burgers are ready to be eaten!</p>
@@ -34,7 +34,7 @@
 
     <div class="col-sm">
       <div class="panel panel-default">
-        <div class="panel-heading" id="rightburger"><strong>
+        <div class="panel-heading" id="second"><strong>
             <h3>Burgers already eaten!</h3>
           </strong>
           <p>These burgers have already been eaten!</p>
@@ -44,7 +44,7 @@
             {{#each burgers}}
             {{#if devoured}}
             <span>{{this.id}} - {{this.name}}</strong>
-              <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}"
+              <button type="button" class="trashburger btn btn-danger" id="garbage" data-id="{{this.id}}"
                 data-newDevoured="{{devour}}">Remove Burger</button> 
               <hr>
               {{/if}}
@@ -62,7 +62,7 @@
 
         <div class="form-group">
           <label for="burger">Burger Name:</label>
-          <input type="text" id="burg" name="name">
+          <input type="text" id="newburger" name="name">
         </div>
 
         <button class="btn-primary" type="submit">Add Burger</button>
