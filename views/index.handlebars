@@ -1,62 +1,72 @@
-<h1 class="text-center">Burger</h1>
-<hr>
+<div class="container">
 
-<div class="row">
 
-  <div class="col-sm-6">
+  <div class="jumbotron">
 
-    <h2 class="text-center">New Burgers</h2>
-
-    <ul>
-      {{#each burgers}}
-      {{#unless eaten}}
-      {{> burgers/burger-block eat=true}}
-      {{/unless}}
-      {{/each}}
-    </ul>
+    <h1>Burgers!</h1>
 
   </div>
 
-  <div class="col-sm-6">
+  <div class="row">
+    <div class="col-sm">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="leftburger"><strong>
+            <h3>Burgers to eat!</h3>
+          </strong>
+          <p>These burgers are ready to be eaten!</p>
+        </div>
+        <div class="panel-body">
+          <ul>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <span>{{this.id}} - {{this.name}}</span>
+            <button type="button" class="devourburger btn btn-primary" data-id="{{this.id}}"
+              data-newDevoured="{{devour}}">Devour Me!</button>
+            <hr>
+            {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <h2 class="text-center">Burgers that have been eaten!</h2>
 
-    <ul>
-      {{#each burgers}}
-      {{#if eaten}}
-      {{> burgers/burger-block eat=false}}
-      {{/if}}
-      {{/each}}
-    </ul>
 
+    <div class="col-sm">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="rightburger"><strong>
+            <h3>Burgers already eaten!</h3>
+          </strong>
+          <p>These burgers have already been eaten!</p>
+        </div>
+        <div class="panel-body">
+          <ul>
+            {{#each burgers}}
+            {{#if devoured}}
+            <span>{{this.id}} - {{this.name}}</strong>
+              <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}"
+                data-newDevoured="{{devour}}">Remove Burger</button> 
+              <hr>
+              {{/if}}
+              {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
-</div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Add a Burger</h2>
+      <form class="create-form">
 
-<hr>
+        <div class="form-group">
+          <label for="burger">Burger Name:</label>
+          <input type="text" id="burg" name="name">
+        </div>
 
-
-<div class="row text-center">
-
-  <div class="col-sm">
-
-<h2>Add a new burger to the menu</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+        <button class="btn-primary" type="submit">Add Burger</button>
+      </form>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="eaten">Have you eaten this burger before?</label><br>
-    <input type="radio" name="eaten" value="1" checked> Yes!<br>
-    <input type="radio" name="eaten" value="0"> Not Yet
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
-
-  </div>
-
 </div>
